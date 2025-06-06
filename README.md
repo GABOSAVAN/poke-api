@@ -26,6 +26,20 @@ cp .env.example .env
 
 # Iniciar Redis (en otra terminal)
 redis-server
+✅ 1. Instalar Redis
+sudo apt update
+sudo apt install redis-server -y
+
+✅ 2. Verificar que Redis se haya instalado
+redis-server --version
+
+✅ 3. Habilitar y arrancar el servicio Redis
+Esto asegura que Redis se inicie automáticamente al arrancar el sistema:
+sudo systemctl enable redis
+sudo systemctl start redis
+
+✅ 4. Verificar que Redis esté corriendo
+sudo systemctl status redis
 
 # Iniciar la aplicación
 npm run start:dev
