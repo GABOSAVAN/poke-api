@@ -7,20 +7,12 @@ import { PokemonSearchResult } from './interfaces/pokemon.interface';
 export class PokemonController {
   constructor(private readonly pokemonService: PokemonService) {}
 
-  /**
-   * Endpoint para buscar pokémons por nombre (coincidencia parcial de prefijo)
-   * GET /pokemon/search?name=bulba
-   */
-  @Get('search')
+   @Get('search')
   async searchPokemons(@Query() searchDto: SearchPokemonDto): Promise<PokemonSearchResult[]> {
     const { name } = searchDto;
     return this.pokemonService.searchPokemonsByName(name || '');
   }
 
-  /**
-   * Endpoint para forzar recarga de datos (útil para desarrollo)
-   * GET /pokemon/reload
-   */
   @Get('reload')
   async reloadData(): Promise<{ message: string; count: number }> {
     return this.pokemonService.reloadPokemonData();

@@ -19,7 +19,7 @@ async function bootstrap() {
     await app.listen(port);
 
     logger.log(`🚀 Servidor Pokémon API con Redis corriendo en http://localhost:${port}`);
-    logger.log(`📡 Endpoint de búsqueda: http://localhost:${port}/pokemon/search?name=bulba`);
+    logger.log(`📡 Endpoint de búsqueda: http://localhost:${port}/pokemon/search?q=bulba`);
 
   } catch (error) {
     logger.error('Error iniciando la aplicación:', error);
